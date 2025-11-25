@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أجير | لخدمات العمالة والمقاولات</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Cairo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        /* خلفية Hero تعتمد على SVG لنمط هندسي بسيط */
+        .hero-pattern {
+            background-color: #000000;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fbbf24' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        /* لتعيين تأثير الحركة لـ 'animate-blob' في قسم الوسطاء */
+        @keyframes blob {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+        }
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            yellow: '#FACC15', // لون أصفر فاقع
+                            black: '#111111', // لون أسود داكن
+                            dark: '#1A1A1A',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 smooth-scroll">
+
+    <!-- Header / Navbar -->
+    <nav class="bg-brand-black text-white py-4 shadow-lg fixed w-full z-50 border-b-4 border-brand-yellow">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-helmet-safety text-brand-yellow text-3xl"></i>
+                <h1 class="text-3xl font-black tracking-wider text-brand-yellow">أجير</h1>
+            </div>
+            <div class="hidden md:flex space-x-8 space-x-reverse text-lg font-semibold">
+                <a href="#home" class="hover:text-brand-yellow transition">الرئيسية</a>
+                <a href="#about" class="hover:text-brand-yellow transition">عن الشركة</a>
+                <a href="#clients" class="hover:text-brand-yellow transition">عملاؤنا</a>
+                <a href="#brokers" class="hover:text-brand-yellow transition">للوسطاء</a>
+                <a href="#contact" class="hover:text-brand-yellow transition">تواصل معنا</a>
+            </div>
+            <!-- زر قائمة الجوال (Mobile Menu Button) -->
+            <button class="md:hidden text-brand-yellow text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="relative h-screen flex items-center justify-center hero-pattern pt-20">
+        <!-- Overlay لتعتيم الخلفية -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/80 to-black/60"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <span class="inline-block py-1 px-3 rounded-full bg-brand-yellow text-black font-bold mb-4 text-sm animate-pulse">أسعار تنافسية لا تقبل التحدي</span>
+            <h1 class="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
+                نقدم لك عمالة <br><span class="text-brand-yellow">النظافة والمقاولات</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                نوفر لك الكوادر البشرية المؤهلة والمدربة بأعلى المعايير، لخدمة مشاريعك بكفاءة واحترافية.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#contact" class="bg-brand-yellow text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition shadow-[0_0_20px_rgba(250,204,21,0.5)] flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    اطلب عرض سعر
+                </a>
+                <a href="#brokers" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-handshake"></i>
+                    نظام الوسطاء
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white relative">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <!-- الإطار المميز لمعلومات عن الشركة -->
+                <div class="relative bg-white p-8 md:p-12 rounded-3xl border-4 border-brand-yellow shadow-[0_20px_50px_rgba(0,0,0,0.1)] text-center transform hover:scale-[1.01] transition duration-500">
+                    <!-- زوايا زخرفية -->
+                    <div class="absolute top-0 left-0 w-16 h-16 border-t-8 border-l-8 border-brand-black rounded-tl-2xl -mt-2 -ml-2"></div>
+                    <div class="absolute bottom-0 right-0 w-16 h-16 border-b-8 border-r-8 border-brand-black rounded-br-2xl -mb-2 -mr-2"></div>
+                    
+                    <!-- الأيقونة العائمة -->
+                    <div class="w-20 h-20 bg-brand-yellow rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg -mt-16 border-4 border-white">
+                        <i class="fa-solid fa-users-gear text-3xl text-brand-black"></i>
+                    </div>
+
+                    <h2 class="text-3xl font-black text-brand-black mb-6">من نحن</h2>
+                    
+                    <div class="text-lg md:text-2xl text-gray-700 leading-relaxed font-semibold">
+                        <p class="mb-4">
+                            نحن شركة متخصصة في تقديم خدمات العمالة للنظافة والمقاولات <span class="text-brand-yellow font-black">(أجير)</span>، وبأسعار تنافسية.
+                        </p>
+                        <p>
+                            نستطيع توفير العمالة حسب احتياجكم ابتداءً من <span class="text-brand-black font-bold border-b-4 border-brand-yellow">15 عاملًا</span> وحتى <span class="text-brand-black font-bold border-b-4 border-brand-yellow">6000 عامل</span>، مع القدرة على التغطية في جميع أنحاء المملكة.
+                        </p>
+                    </div>
+
+                    <!-- علامة مائية زخرفية -->
+                    <i class="fa-solid fa-quote-left absolute top-8 right-8 text-6xl text-gray-100 -z-10"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section (شركاء النجاح) -->
+    <section id="clients" class="py-20 bg-brand-black text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-brand-yellow mb-4">شركاء النجاح</h2>
+                <div class="w-24 h-1 bg-white mx-auto"></div>
+                <p class="mt-4 text-gray-300 text-lg">ثقة كبرى الشركات والمؤسسات هي شهادة على جودة خدماتنا.</p>
+            </div>
+
+            <!-- شبكة العملاء (تم تعديلها لاستيعاب العناصر الجديدة) -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12 items-center justify-center">
+                
+                <!-- 1. بنده -->
+                <div class="group p-10 bg-gray-900 border border-gray-800 rounded-xl hover:shadow-2xl hover:shadow-brand-yellow/30 transition text-center transform hover:scale-105">
+                    <div class="h-16 flex items-center justify-center text-6xl text-gray-500 group-hover:text-red-500 mb-2">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl text-white">بنده</h3>
+                </div>
+
+                <!-- 1.5 شركة إجادة (إضافة جديدة) -->
+                <div class="group p-10 bg-gray-900 border border-gray-800 rounded-xl hover:shadow-2xl hover:shadow-brand-yellow/30 transition text-center transform hover:scale-105">
+                    <div class="h-16 flex items-center justify-center text-6xl text-gray-500 group-hover:text-blue-500 mb-2">
+                        <i class="fa-solid fa-wrench"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl text-white">شركة إجادة</h3>
+                </div>
+
+                <!-- 2. لولو ماركت (تم دفعها لتبقى في الزاوية) -->
+                <div class="group p-10 bg-gray-900 border border-gray-800 rounded-xl hover:shadow-2xl hover:shadow-brand-yellow/30 transition text-center transform hover:scale-105 md:col-start-3 lg:col-start-4">
+                    <div class="h-16 flex items-center justify-center text-6xl text-gray-500 group-hover:text-green-500 mb-2">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl text-white">لولو ماركت</h3>
+                </div>
+
+                <!-- 3. الحرم المكي والمدني (يحتل كامل العرض) -->
+                <div class="group p-10 bg-brand-yellow/10 border-2 border-brand-yellow rounded-xl shadow-xl shadow-brand-yellow/20 transition text-center transform hover:scale-105 col-span-full">
+                    <div class="h-16 flex items-center justify-center text-6xl text-brand-yellow mb-2">
+                        <i class="fa-solid fa-kaaba"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl text-white">الحرم المكي والمدني</h3>
+                </div>
+
+                <!-- 4. مجموعة بن لادن -->
+                <div class="group p-10 bg-gray-900 border border-gray-800 rounded-xl hover:shadow-2xl hover:shadow-brand-yellow/30 transition text-center transform hover:scale-105">
+                    <div class="h-16 flex items-center justify-center text-6xl text-gray-500 group-hover:text-blue-400 mb-2">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl text-white">مجموعة بن لادن</h3>
+                </div>
+
+                <!-- 4.5 مشاريع عقارية أخرى (إضافة جديدة) -->
+                <div class="group p-10 bg-gray-900 border border-gray-800 rounded-xl hover:shadow-2xl hover:shadow-brand-yellow/30 transition text-center transform hover:scale-105">
+                    <div class="h-16 flex items-center justify-center text-6xl text-gray-500 group-hover:text-orange-500 mb-2">
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl text-white">مشاريع عقارية أخرى</h3>
+                </div>
+
+                 <!-- 5. شركات ومشاريع أخرى (تم دفعها لتبقى في الزاوية) -->
+                 <div class="group p-10 bg-gray-900 border border-gray-800 rounded-xl hover:shadow-2xl hover:shadow-brand-yellow/30 transition text-center transform hover:scale-105 md:col-start-3 lg:col-start-4">
+                    <div class="h-16 flex items-center justify-center text-6xl text-gray-500 group-hover:text-brand-yellow mb-2">
+                        <i class="fa-solid fa-city"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl text-white">شركات ومشاريع أخرى</h3>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Brokers Section (خانة الوسطاء) -->
+    <section id="brokers" class="py-20 bg-gray-50 text-brand-black relative overflow-hidden">
+        <!-- عناصر زخرفية متحركة في الخلفية -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-brand-yellow rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
+        <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-yellow-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                
+                <!-- المحتوى النصي -->
+                <div class="lg:w-1/2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="bg-brand-black text-brand-yellow p-2 rounded-lg text-2xl"><i class="fa-solid fa-briefcase"></i></span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-brand-black">خانة الوسطاء</h2>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-6">فرصة ذهبية لزيادة دخلك الشهري</h3>
+                    <p class="text-gray-700 text-lg mb-8 leading-relaxed">
+                        نحن في أجير نقدر شركاء النجاح. إذا كان لديك علاقات مع شركات تحتاج إلى عمالة، فنحن نقدم لك عمولة مجزية ومستمرة.
+                    </p>
+                    
+                    <div class="bg-white border-r-4 border-brand-yellow p-6 rounded-lg mb-6 shadow-lg">
+                        <h4 class="text-xl font-bold text-brand-black mb-2">💼 العرض كالتالي:</h4>
+                        <p class="text-gray-700">
+                            إذا جبت لي شركة تطلب عقد عمال (من 20 إلى 6000 عامل، نظافه)، رح تكون عمولتك <span class="text-red-600 font-bold text-xl">50 ريال</span> على كل عامل.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- بطاقة المثال التوضيحي -->
+                <div class="lg:w-1/2 w-full">
+                    <div class="bg-white text-brand-black rounded-2xl p-8 shadow-2xl relative transform hover:-translate-y-2 transition duration-300 border-2 border-brand-yellow">
+                        <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-brand-black text-brand-yellow px-6 py-2 rounded-full font-bold shadow-lg">
+                            🔹 مثال توضيحي
+                        </div>
+                        
+                        <div class="mt-4 space-y-6">
+                            <div class="flex justify-between items-center border-b pb-4">
+                                <span class="text-gray-600 font-semibold">حجم العقد</span>
+                                <span class="font-bold text-xl">400 عامل نظافة</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b pb-4">
+                                <span class="text-gray-600 font-semibold">مدة العقد</span>
+                                <span class="font-bold text-xl">سنة واحدة</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b pb-4">
+                                <span class="text-gray-600 font-semibold">العمولة (للعامل)</span>
+                                <span class="font-bold text-xl text-red-600">50 ريال</span>
+                            </div>
+                            
+                            <div class="bg-yellow-50 p-4 rounded-xl text-center border border-brand-yellow/50">
+                                <p class="text-gray-700 text-sm mb-1">إجمالي عمولتك الشهرية</p>
+                                <p class="text-4xl font-black text-brand-black">20,000 <span class="text-lg text-gray-600">ريال/شهرياً</span></p>
+                                <p class="text-red-600 font-bold mt-2">لمدة سنة كاملة!</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <a href="#contact" class="block w-full bg-brand-black text-brand-yellow text-center py-4 rounded-lg font-bold hover:bg-gray-800 transition">
+                                ابدأ الآن وتواصل معنا
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Summary (ملخص الخدمات) -->
+    <section id="services" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-brand-black">خدماتنا</h2>
+                <div class="w-24 h-1 bg-brand-yellow mx-auto mt-4"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-sm flex items-start gap-4 hover:shadow-md transition">
+                    <div class="bg-yellow-100 p-4 rounded-full text-brand-yellow text-2xl">
+                        <i class="fa-solid fa-broom"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">تأجير عمالة نظافة</h3>
+                        <p class="text-gray-600">نوفر عمال نظافة مدربين للمجمعات التجارية، المستشفيات، الفنادق، والمرافق العامة بعقود مرنة وأسعار تنافسية.</p>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-sm flex items-start gap-4 hover:shadow-md transition">
+                    <div class="bg-yellow-100 p-4 rounded-full text-brand-yellow text-2xl">
+                        <i class="fa-solid fa-trowel-bricks"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">عمالة مقاولات وإنشاءات</h3>
+                        <p class="text-gray-600">عمالة محترفة لقطاع البناء والتشييد، ملتزمون بمعايير السلامة والجودة والإنتاجية العالية.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact Section (التذييل والتواصل) -->
+    <footer id="contact" class="bg-brand-black text-white pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <h2 class="text-4xl font-bold text-brand-yellow mb-6">تواصل معنا الآن</h2>
+                    <p class="text-xl mb-8 text-gray-300">
+                        سواء كنت تبحث عن عمالة لمشروعك، أو كنت وسيطاً ترغب في الاستفادة من عروضنا، فريقنا جاهز لخدمتك على مدار الساعة.
+                    </p>
+                    <div class="flex flex-col gap-4">
+                        <div class="flex items-center gap-4 text-lg">
+                            <i class="fa-solid fa-envelope text-brand-yellow"></i>
+                            <span>khaled510kh@gmail.com</span>
+                        </div>
+                        <div class="flex items-center gap-4 text-lg">
+                            <i class="fa-solid fa-location-dot text-brand-yellow"></i>
+                            <span>المملكة العربية السعودية</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- منطقة زر واتساب العملاق -->
+                <div class="bg-gray-900 p-8 rounded-2xl border border-gray-700 text-center">
+                    <i class="fa-brands fa-whatsapp text-6xl text-green-500 mb-4 block"></i>
+                    <h3 class="text-2xl font-bold mb-2">تواصل مباشرة عبر واتساب</h3>
+                    <p class="text-gray-400 mb-6">اضغط الزر أدناه للمحادثة الفورية</p>
+                    <a href="https://wa.me/966539737468" target="_blank" class="inline-flex items-center justify-center gap-3 w-full bg-brand-yellow text-black font-black py-5 rounded-xl text-2xl hover:bg-yellow-300 transition shadow-lg transform hover:scale-105">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        0539737468
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
+                <p>&copy; 2024 موقع أجير لتأجير العمالة. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- زر واتساب العائم للجوال -->
+    <a href="https://wa.me/966539737468" class="fixed bottom-6 left-6 bg-green-500 text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-3xl z-50 hover:bg-green-600 transition md:hidden animate-bounce">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
